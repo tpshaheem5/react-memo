@@ -1,15 +1,19 @@
-import Parent from './component/Parent';
-import './App.css';
+import React, { useState, useCallback } from 'react';
 
+const MyComponent = () => {
+  const [count, setCount] = useState(0);
 
-function App() {
+  const increment = useCallback(() => {
+    setCount(prevCount => prevCount + 1);
+  }, []);
 
-  
   return (
     <div>
-      <Parent/>
+      <h1>My Component</h1>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
     </div>
   );
-}
+};
 
-export default App;
+export default MyComponent;
